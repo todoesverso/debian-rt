@@ -22,7 +22,6 @@ import shutil
 import datetime
 import os.path
 import os
-import re
 
 #if len(sys.argv) < 2:
 #    sys.exit(1)
@@ -37,7 +36,6 @@ now = datetime.datetime.now()
 path        = '/tmp/'
 file        = path + 'limits.conf'
 file_bkp    = file + '.' + now.strftime("%Y%m%d%H%M%S") + '.back'
-
 
 # Create backup of the file.
 if os.path.isfile(file):
