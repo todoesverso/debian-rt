@@ -18,11 +18,15 @@
 #########################################################################
 
 import os
+import csv
 
 apps = []
 
-for entry in open('programas_disponibles.txt'):
-    desc, name = entry.strip().split(';')
+reader = csv.DictReader(open('programas_disponibles.csv'))
+
+for entry in reader:
+    desc = entry['description']
+    name = entry['name']
     option = raw_input("Instalar %s ? (s/n): " % desc)
     if option.lower() == 's':
         apps.append(name)
