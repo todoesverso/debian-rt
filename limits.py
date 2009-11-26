@@ -20,7 +20,6 @@
 import sys
 import shutil
 import datetime
-import os.path
 import os
 
 #if len(sys.argv) < 2:
