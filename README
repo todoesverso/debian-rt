@@ -1,0 +1,17 @@
+debian-rt
+=========
+
+History
+-------
+This is a set of scripts based on the initial work done by Gabriel Ferreira
+posted in his web page at:
+
+http://www.soundebian.com.ar/2009/11/script-que-automatiza-todas-los-pasos-
+para-configurar-un-sistema-realtime-en-audio/
+
+
+Introduction
+------------
+The idea here is to have a set of scripts that each one performs some 
+system configurations in order to make the whole debian-base system
+a real-time one.
