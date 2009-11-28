@@ -39,6 +39,7 @@ log     = False
 path        = '/tmp/'
 file        = 'script-rt.sh'
 file_final  = path + file
+sym_link    = '/etc/rcS.d/S99rtimer'
 
 # Check y the package 'util-linux' that provides the program chrt 
 cache = apt.Cache()
@@ -66,6 +67,9 @@ else:
     print "The file " + file + " does not exist"
     sys.exit(1) 
 
+# Create the symbolic link
+#### Add some check here ####
+os.symlink(file_final, sym_link)
 
 # Finish 
 sys.exit(0)
