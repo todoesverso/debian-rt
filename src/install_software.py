@@ -23,7 +23,7 @@ import os
 import csv
 
 cache = apt.Cache()
-reader = csv.DictReader(open('programas_disponibles.csv'))
+reader = csv.DictReader(open('apps_list.csv'))
 
 for entry in reader:
     desc = entry['description']
