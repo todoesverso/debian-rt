@@ -36,7 +36,6 @@ de apt. Ignorando." % (name, desc)
     if package.isInstalled and not package.isUpgradable:
         print "El paquete %s ya se encuentra instalado y actualizado. \
 Ignorando" % name
-        continue
     elif package.isInstalled and package.isUpgradable:
         print "El paquete %s (%s) se encuentra instalado en su versión %s.\n" \
               "La versión %s se encuentra disponible." % \
