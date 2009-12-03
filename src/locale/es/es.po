@@ -1,0 +1,65 @@
+# Spanish translations for PACKAGE package.
+# Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#  <bananabruno@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 00:45-0300\n"
+"PO-Revision-Date: 2009-12-03 00:10-0300\n"
+"Last-Translator:  <bananabruno@gmail.com>\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: install_software.py:29
+msgid "Couldn't import apt module. Check if python-apt is correctly installed."
+msgstr ""
+"No se pudo importar el módulo apt. Asegúrese de que python-apt se encuentra "
+"instalado"
+
+#: install_software.py:45
+#, python-format
+msgid ""
+"Warning: the package %(name)s (%(desc)s) was not found in apt cache. "
+"Ignoring."
+msgstr ""
+"Advertencia: el paquete %(name)s (%(desc)s) no se encuentra en la cache de "
+"apt. Ignorando."
+
+#: install_software.py:54
+#, fuzzy, python-format
+msgid ""
+"Version %(ver)s of package %(name)s (%(desc)s) is installed. Version %(cand)"
+"s is available."
+msgstr ""
+"El paquete %(name)s (%(desc)s) se encuentra instalado en su versión %(ver)"
+"s.\n"
+"La versión %(cand)s se encuentra disponible."
+
+#: install_software.py:58
+msgid "Upgrade? (y/n): "
+msgstr "Actualizar? (s/n): "
+
+#: install_software.py:59 install_software.py:63 install_software.py:69
+msgid "y"
+msgstr "s"
+
+#: install_software.py:62
+#, python-format
+msgid "Install %s ? (y/n): "
+msgstr "Instalar %s ? (s/n): "
+
+#: install_software.py:68
+msgid "Install selected packages? (y/n): "
+msgstr "Confirma instalar lo seleccionado? (s/n): "
+
+#: install_software.py:51
+#, python-format
+msgid "Latest version of package %(name)s is already installed. Ignoring."
+msgstr ""
+"El paquete %(name)s ya se encuentra instalado y actualizado. Ignorando."

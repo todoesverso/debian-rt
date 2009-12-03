@@ -1,0 +1,61 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#  <bananabruno@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 00:45-0300\n"
+"PO-Revision-Date: 2009-12-03 00:09-0300\n"
+"Last-Translator:  <bananabruno@gmail.com>\n"
+"Language-Team: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: install_software.py:29
+msgid "Couldn't import apt module. Check if python-apt is correctly installed."
+msgstr "Couldn't import apt module. Check if python-apt is correctly installed."
+
+#: install_software.py:45
+#, python-format
+msgid ""
+"Warning: the package %(name)s (%(desc)s) was not found in apt cache. "
+"Ignoring."
+msgstr ""
+"Warning: the package %(name)s (%(desc)s) was not found in apt cache. "
+"Ignoring."
+
+#: install_software.py:54
+#, fuzzy, python-format
+msgid ""
+"Version %(ver)s of package %(name)s (%(desc)s) is installed. Version %(cand)"
+"s is available."
+msgstr ""
+"Version %(ver)s of package %(name)s (%(desc)s) is installed. Version %(cand)"
+"s is available."
+
+#: install_software.py:58
+msgid "Upgrade? (y/n): "
+msgstr "Upgrade? (y/n): "
+
+#: install_software.py:59 install_software.py:63 install_software.py:69
+msgid "y"
+msgstr "y"
+
+#: install_software.py:62
+#, python-format
+msgid "Install %s ? (y/n): "
+msgstr "Install %s ? (y/n): "
+
+#: install_software.py:68
+msgid "Install selected packages? (y/n): "
+msgstr "Install selected packages? (y/n): "
+
+#: install_software.py:51
+#, python-format
+msgid "Latest version of package %(name)s is already installed. Ignoring."
+msgstr "Latest version of package %(name)s is already installed. Ignoring."

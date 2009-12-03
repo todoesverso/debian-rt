@@ -18,9 +18,22 @@
 # along with Foobar.  If not, see <http://www.gnu.org/licenses/>.       #
 #########################################################################
 
-import apt
-import os
 import csv
+import gettext
+import os
+import sys
+
+TRANSLATION_DOMAIN = "debian-rt"
+LOCALE_DIR = os.path.join(os.path.dirname(__file__), "locale")
+
+gettext.install(TRANSLATION_DOMAIN, LOCALE_DIR)
+
+try:
+    import apt
+except ImportError:
+    print _("Couldn't import apt module. "
+            "Check if python-apt is correctly installed.")
+    sys.exit(1)
 
 cache = apt.Cache()
 reader = csv.DictReader(open('apps_list.csv'))
@@ -29,29 +42,30 @@ for entry in reader:
     desc = entry['description']
     name = entry['name']
     if not cache.has_key(name):
-        print "Advertencia: el paquete %s (%s) no se encuentra en la cache \
-de apt. Ignorando." % (name, desc)
+        print _("Warning: the package %(name)s (%(desc)s) was not found "
+                "in apt cache. Ignoring.") % {'name': name,
+                                              'desc': desc}
         continue
     package = cache[name]
     if package.isInstalled and not package.isUpgradable:
-        print "El paquete %s ya se encuentra instalado y actualizado. \
-Ignorando" % name
+        print _("Latest version of package %(name)s is already installed. "
+                "Ignoring.") % {'name': name}
     elif package.isInstalled and package.isUpgradable:
-        print "El paquete %s (%s) se encuentra instalado en su versión %s.\n" \
-              "La versión %s se encuentra disponible." % \
-        (name, desc, package.installed.version, package.candidate.version)
-        option = raw_input("Actualizar? (s/n): ")
-        if option.lower() == 's':
+        print _("Version %(ver)s of package %(name)s (%(desc)s) is installed."
+                " Version %(cand)s is available.") % \
+        {'name': name, 'desc': desc, 'ver': package.installed.version,
+         'cand': package.candidate.version}
+        option = raw_input(_("Upgrade? (y/n): "))
+        if option.lower() == _('y'):
             package.markUpgrade()
     else:
-        option = raw_input("Instalar %s ? (s/n): " % desc)
-        if option.lower() == 's':
+        option = raw_input(_("Install %s ? (y/n): ") % desc)
+        if option.lower() == _('y'):
             package.markInstall()
 
 print "\n------------------------------------\n\n"
 
-option = raw_input("Confirma instalar lo seleccionado? (s/n): ")
-if option.lower() == 's':
+option = raw_input(_("Install selected packages? (y/n): "))
+if option.lower() == _('y'):
     cache.commit(apt.progress.TextFetchProgress(),
                  apt.progress.InstallProgress())
-
