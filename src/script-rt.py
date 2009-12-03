@@ -21,11 +21,6 @@ import sys
 import os
 import apt
 import shutil
-from common import *
-
-# Printing messages
-stdout  = True 
-log     = False
 
 #if len(sys.argv) < 2:
 #    sys.exit(1)
@@ -41,37 +36,41 @@ file        = 'script-rt.sh'
 file_final  = path + file
 sym_link    = '/etc/rcS.d/S99rtimer'
 
-# Check y the package 'util-linux' that provides the program chrt 
+# Check the package 'util-linux' that provides the program chrt 
 cache = apt.Cache()
 pkg = cache['util-linux']
 
 if not pkg.isInstalled:
-    printrt ("The package 'util-linux' is not installed", stdout, log)
-    printrt ("Installing 'util-linux' ...", stdout, log)
+    print ("The package 'util-linux' is not installed")
+    print ("Installing 'util-linux' ...")
     # Mark util-linux for install
     pkg.markInstall()
     # Install the package   
-    cache.commit()
-else:
-    printrt ("The package 'util-linux' is already installed", stdout, log)
-    sys.exit(0)
+    try:
+        cache.commit()
+    except:
+        print ("Could not install 'util-linux'")
+        print ("Aborting ...")
+        sys.exit(1)
 
 # Copy the script to /etc/init.d/
 if os.path.isfile(file):
     try:
         shutil.copy(file, file_final)
     except:
-        print "Could not copy " + file + " into " + file_final
+        print ("Could not copy " + file + " into " + file_final)
         sys.exit(1) 
 else:
-    print "The file " + file + " does not exist"
+    print ("The file " + file + " does not exist")
     sys.exit(1) 
 
+# Make sure that the script has executable bit
+os.chmod(file_final, 0755)
+
 # Create the symbolic link
-#### Add some check here ####
-os.symlink(file_final, sym_link)
+if not os.symlink(file_final, sym_link):
+    print ("Could not create symlink " + sym_link + " ...")
+    sys.exit(1)
 
 # Finish 
 sys.exit(0)
-
-
