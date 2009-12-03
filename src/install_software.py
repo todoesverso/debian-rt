@@ -37,8 +37,8 @@ de apt. Ignorando." % (name, desc)
         print "El paquete %s ya se encuentra instalado y actualizado. \
 Ignorando" % name
     elif package.isInstalled and package.isUpgradable:
-        print "El paquete %s (%s) se encuentra instalado en su versión %s.\n" \
-              "La versión %s se encuentra disponible." % \
+        print "El paquete %s (%s) se encuentra instalado en su versiÃ³n %s.\n" \
+              "La versiÃ³n %s se encuentra disponible." % \
         (name, desc, package.installed.version, package.candidate.version)
         option = raw_input("Actualizar? (s/n): ")
         if option.lower() == 's':
