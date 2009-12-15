@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-03 00:45-0300\n"
+"POT-Creation-Date: 2009-12-15 20:30-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,42 +16,43 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: install_software.py:29
+#: ../install_software.py:34
 msgid "Couldn't import apt module. Check if python-apt is correctly installed."
 msgstr ""
 
-#: install_software.py:45
+#: ../install_software.py:45
 #, python-format
 msgid ""
 "Warning: the package %(name)s (%(desc)s) was not found in apt cache. "
 "Ignoring."
 msgstr ""
 
-#: install_software.py:54
+#: ../install_software.py:51
+#, python-format
+msgid "Latest version of package %(name)s is already installed. Ignoring."
+msgstr ""
+
+#: ../install_software.py:54
 #, python-format
 msgid ""
 "Version %(ver)s of package %(name)s (%(desc)s) is installed. Version %(cand)"
 "s is available."
 msgstr ""
 
-#: install_software.py:58
+#: ../install_software.py:58
 msgid "Upgrade? (y/n): "
 msgstr ""
 
-#: install_software.py:59 install_software.py:63 install_software.py:69
+#: ../install_software.py:59 ../install_software.py:63
+#: ../install_software.py:69
 msgid "y"
 msgstr ""
 
-#: install_software.py:62
+#: ../install_software.py:62
 #, python-format
 msgid "Install %s ? (y/n): "
 msgstr ""
 
-#: install_software.py:68
+#: ../install_software.py:68
 msgid "Install selected packages? (y/n): "
-msgstr ""
-
-#: install_software.py:51
-#, python-format
-msgid "Latest version of package %(name)s is already installed. Ignoring."
 msgstr ""

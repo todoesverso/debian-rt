@@ -21,6 +21,12 @@ import sys
 import os
 import apt
 import shutil
+import gettext
+
+TRANSLATION_DOMAIN = "debian-rt"
+LOCALE_DIR = os.path.join(os.path.dirname(__file__), "locale")
+
+gettext.install(TRANSLATION_DOMAIN, LOCALE_DIR)
 
 #if len(sys.argv) < 2:
 #    sys.exit(1)
@@ -41,16 +47,16 @@ cache = apt.Cache()
 pkg = cache['util-linux']
 
 if not pkg.isInstalled:
-    print ("The package 'util-linux' is not installed")
-    print ("Installing 'util-linux' ...")
+    print _("The package 'util-linux' is not installed")
+    print _("Installing 'util-linux' ...")
     # Mark util-linux for install
     pkg.markInstall()
     # Install the package   
     try:
         cache.commit()
     except:
-        print ("Could not install 'util-linux'")
-        print ("Aborting ...")
+        print _("Could not install 'util-linux'")
+        print _("Aborting ...")
         sys.exit(1)
 
 # Copy the script to /etc/init.d/
@@ -58,10 +64,11 @@ if os.path.isfile(file):
     try:
         shutil.copy(file, file_final)
     except:
-        print ("Could not copy " + file + " into " + file_final)
+        print _("Could not copy %(file)s into %(file_final)s \n") 
+                % {'file': file, 'file_final': file_final}
         sys.exit(1) 
 else:
-    print ("The file " + file + " does not exist")
+    print _("The file %(file)s does not exist") % {'file': file}
     sys.exit(1) 
 
 # Make sure that the script has executable bit
@@ -69,7 +76,8 @@ os.chmod(file_final, 0755)
 
 # Create the symbolic link
 if not os.symlink(file_final, sym_link):
-    print ("Could not create symlink " + sym_link + " ...")
+    print _("Could not create symlink %(sym_link)s ... \n") 
+            % {'sym_link': sym_link}
     sys.exit(1)
 
 # Finish 
