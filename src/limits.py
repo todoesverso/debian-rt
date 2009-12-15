@@ -21,9 +21,12 @@ import sys
 import shutil
 import datetime
 import os
+import gettext
 
-#if len(sys.argv) < 2:
-#    sys.exit(1)
+TRANSLATION_DOMAIN = "debian-rt"
+LOCALE_DIR = os.path.join(os.path.dirname(__file__), "locale")
+
+gettext.install(TRANSLATION_DOMAIN, LOCALE_DIR)
 
 # Check if we are root
 #if os.geteuid() != 0:
@@ -41,10 +44,11 @@ if os.path.isfile(file):
     try:
         shutil.copy(file, file_bkp)
     except:
-        print "Could not copy " + file + " into " + file_bkp
+        print _("Could not copy %(file)s into %(file_bkp)s.\n") 
+                % { 'file': file, 'file_bkp': file_bkp}
         sys.exit(1) 
 else:
-    print "The file " + file + " does not exist"
+    print _("The file %(file)s does not exist") % {'file': file}
     sys.exit(1) 
 
 # Strings to be added
